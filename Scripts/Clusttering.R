@@ -1,0 +1,11 @@
+set.seed(113)
+par(mar=c(2,2,2,2))
+a = rnorm(12, mean = rep(c(1,2,3), each=4), sd = 0.2)
+b = rnorm(12, mean = rep(c(1,2,1), each=4), sd = 0.3)
+plot(a, b, col='blue', pch=19)
+text(a + 0.05, b + 0.05, labels = as.character(1:12))
+
+df = data.frame(x = a, y = b)
+distxy = dist(df)
+hcluster = hclust(distxy)
+plot(hcluster)
